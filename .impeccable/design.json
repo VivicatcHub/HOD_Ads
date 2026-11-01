@@ -1,0 +1,715 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-13T20:51:58+00:00",
+  "title": "Design System: HOD Ads",
+  "extensions": {
+    "colorMeta": {
+      "hod-night": {
+        "role": "primary",
+        "displayName": "Violet nuit",
+        "canonical": "#14062b",
+        "tonalRamp": [
+          "#0f0225",
+          "#291c43",
+          "#453964",
+          "#655985",
+          "#867aa9",
+          "#a89ccd",
+          "#cdc0f3",
+          "#f0ebff"
+        ]
+      },
+      "hod-deep": {
+        "role": "primary",
+        "displayName": "Violet couvercle",
+        "canonical": "#2b0a57",
+        "tonalRamp": [
+          "#11002e",
+          "#2d0c59",
+          "#492f7b",
+          "#68509f",
+          "#8971c4",
+          "#ab94ea",
+          "#cdbefd",
+          "#efebfe"
+        ]
+      },
+      "hod-royal": {
+        "role": "primary",
+        "displayName": "Violet royal",
+        "canonical": "#5a14a0",
+        "tonalRamp": [
+          "#12002c",
+          "#31005e",
+          "#540799",
+          "#7439bf",
+          "#955ee6",
+          "#b48afe",
+          "#d1bcfe",
+          "#f1ebff"
+        ]
+      },
+      "hod-electric": {
+        "role": "primary",
+        "displayName": "Violet électrique",
+        "canonical": "#a30af5",
+        "tonalRamp": [
+          "#150027",
+          "#370057",
+          "#5d078e",
+          "#8613c9",
+          "#ac3bfa",
+          "#c284f9",
+          "#dab9fb",
+          "#f4eaff"
+        ]
+      },
+      "hod-orchid": {
+        "role": "primary",
+        "displayName": "Orchidée",
+        "canonical": "#e58cf5",
+        "tonalRamp": [
+          "#1a0020",
+          "#3e0247",
+          "#680b77",
+          "#8b369a",
+          "#af59bf",
+          "#d57de5",
+          "#f1acfd",
+          "#fbe7fe"
+        ]
+      },
+      "hod-lilac": {
+        "role": "primary",
+        "displayName": "Lilas",
+        "canonical": "#f3ecfb",
+        "tonalRamp": [
+          "#0d0912",
+          "#28222d",
+          "#453f4b",
+          "#645e6b",
+          "#867f8d",
+          "#a8a2b0",
+          "#cdc6d4",
+          "#f2ebfa"
+        ]
+      },
+      "hod-gold": {
+        "role": "secondary",
+        "displayName": "Or collector",
+        "canonical": "#e9b949",
+        "tonalRamp": [
+          "#130900",
+          "#312200",
+          "#543e01",
+          "#7b5c06",
+          "#a27c19",
+          "#cc9d25",
+          "#f2c253",
+          "#feedc9"
+        ]
+      },
+      "pole-reflexion": {
+        "role": "tertiary",
+        "displayName": "Blanc cassé Réflexion",
+        "canonical": "#ede6d6",
+        "tonalRamp": [
+          "#0f0a02",
+          "#2a2418",
+          "#474134",
+          "#676153",
+          "#888273",
+          "#aba495",
+          "#cfc9b9",
+          "#f5eede"
+        ]
+      },
+      "pole-tcg": {
+        "role": "tertiary",
+        "displayName": "Bleu TCG",
+        "canonical": "#1f5ad6",
+        "tonalRamp": [
+          "#000039",
+          "#001769",
+          "#0033a1",
+          "#1a55d0",
+          "#3c79f8",
+          "#74a3ff",
+          "#adcafe",
+          "#e6effe"
+        ]
+      },
+      "pole-societe": {
+        "role": "tertiary",
+        "displayName": "Orange Société",
+        "canonical": "#ff7417",
+        "tonalRamp": [
+          "#1d0200",
+          "#411600",
+          "#6d2b00",
+          "#9d4200",
+          "#cd5c11",
+          "#fb7c32",
+          "#ffb692",
+          "#feeae0"
+        ]
+      },
+      "pole-jdr": {
+        "role": "tertiary",
+        "displayName": "Bleu-vert JDR",
+        "canonical": "#0f8a7e",
+        "tonalRamp": [
+          "#000f0d",
+          "#002c28",
+          "#064d46",
+          "#107066",
+          "#259589",
+          "#51b9ac",
+          "#78ded0",
+          "#b9fff4"
+        ]
+      },
+      "pole-wargames": {
+        "role": "tertiary",
+        "displayName": "Rouge Wargames",
+        "canonical": "#cc1f2b",
+        "tonalRamp": [
+          "#220000",
+          "#4c0107",
+          "#7e0a14",
+          "#b41623",
+          "#e33b3e",
+          "#ff726c",
+          "#feb3ac",
+          "#fee9e7"
+        ]
+      },
+      "pole-poker": {
+        "role": "tertiary",
+        "displayName": "Vert Poker",
+        "canonical": "#0f7a43",
+        "tonalRamp": [
+          "#001103",
+          "#002e14",
+          "#005028",
+          "#01753e",
+          "#39985e",
+          "#5fbc80",
+          "#84e1a3",
+          "#c8fed7"
+        ]
+      },
+      "pole-mensonges": {
+        "role": "tertiary",
+        "displayName": "Noir Mensonges",
+        "canonical": "#131016",
+        "tonalRamp": [
+          "#0d0a0f",
+          "#27232a",
+          "#444047",
+          "#635f67",
+          "#848089",
+          "#a7a3ab",
+          "#cbc7d0",
+          "#f1ecf5"
+        ]
+      },
+      "felt": {
+        "role": "neutral",
+        "displayName": "Tapis",
+        "canonical": "#170830",
+        "tonalRamp": [
+          "#0f0126",
+          "#291b45",
+          "#453965",
+          "#655887",
+          "#8679ab",
+          "#a89cd0",
+          "#ccc0f5",
+          "#efebfe"
+        ]
+      },
+      "felt-2": {
+        "role": "neutral",
+        "displayName": "Tapis relevé",
+        "canonical": "#22103f",
+        "tonalRamp": [
+          "#110029",
+          "#2a1949",
+          "#473769",
+          "#66568c",
+          "#8778b0",
+          "#aa9ad5",
+          "#cebefb",
+          "#f0ebff"
+        ]
+      },
+      "felt-3": {
+        "role": "neutral",
+        "displayName": "Tapis éclairé",
+        "canonical": "#2e1752",
+        "tonalRamp": [
+          "#12002c",
+          "#2c144f",
+          "#493471",
+          "#685394",
+          "#8975b8",
+          "#ac97de",
+          "#cfbefb",
+          "#f0ebff"
+        ]
+      },
+      "felt-ink": {
+        "role": "neutral",
+        "displayName": "Encre du tapis",
+        "canonical": "#efe6fb",
+        "tonalRamp": [
+          "#0e0815",
+          "#282131",
+          "#463e4f",
+          "#655d6f",
+          "#867e91",
+          "#a9a1b4",
+          "#cdc5d9",
+          "#f3eaff"
+        ]
+      },
+      "felt-muted": {
+        "role": "neutral",
+        "displayName": "Encre douce du tapis",
+        "canonical": "#b7a5d3",
+        "tonalRamp": [
+          "#110222",
+          "#2c1b40",
+          "#493960",
+          "#695881",
+          "#8a79a4",
+          "#ad9bc9",
+          "#d1bfee",
+          "#f2ebfe"
+        ]
+      },
+      "sheet": {
+        "role": "neutral",
+        "displayName": "Fiche",
+        "canonical": "#f5effc",
+        "tonalRamp": [
+          "#0d0911",
+          "#27232c",
+          "#44404a",
+          "#645f6a",
+          "#85808b",
+          "#a8a2ae",
+          "#ccc6d3",
+          "#f1ecf8"
+        ]
+      },
+      "sheet-2": {
+        "role": "neutral",
+        "displayName": "Fiche ombrée",
+        "canonical": "#ebe1f8",
+        "tonalRamp": [
+          "#0e0716",
+          "#292132",
+          "#463e50",
+          "#655d70",
+          "#877e92",
+          "#aaa0b6",
+          "#cec4db",
+          "#f3eafe"
+        ]
+      },
+      "sheet-ink": {
+        "role": "neutral",
+        "displayName": "Encre de fiche",
+        "canonical": "#1f0f3a",
+        "tonalRamp": [
+          "#100127",
+          "#291a46",
+          "#463867",
+          "#655789",
+          "#8779ad",
+          "#a99bd1",
+          "#cebff7",
+          "#f0ebff"
+        ]
+      },
+      "sheet-muted": {
+        "role": "neutral",
+        "displayName": "Encre douce de fiche",
+        "canonical": "#5f4d7d",
+        "tonalRamp": [
+          "#120026",
+          "#2c1a45",
+          "#493765",
+          "#695687",
+          "#8a77ab",
+          "#ad9acf",
+          "#d1bef5",
+          "#f1ebfe"
+        ]
+      },
+      "sheet-line": {
+        "role": "neutral",
+        "displayName": "Filet de fiche",
+        "canonical": "#d9cbec",
+        "tonalRamp": [
+          "#10051b",
+          "#2a1f38",
+          "#483c57",
+          "#675b77",
+          "#897c9a",
+          "#ac9ebe",
+          "#d0c2e3",
+          "#f3eaff"
+        ]
+      },
+      "violet": {
+        "role": "primary",
+        "displayName": "Violet d'action",
+        "canonical": "#7a1fd1",
+        "tonalRamp": [
+          "#12002a",
+          "#33005f",
+          "#56009b",
+          "#7a20d2",
+          "#9c4ef9",
+          "#b58bf9",
+          "#d2bdfb",
+          "#f1ebff"
+        ]
+      },
+      "danger": {
+        "role": "neutral",
+        "displayName": "Erreur",
+        "canonical": "#b4233a",
+        "tonalRamp": [
+          "#210002",
+          "#4d000f",
+          "#7f0020",
+          "#b01e37",
+          "#d84957",
+          "#fb747c",
+          "#fcb3b4",
+          "#ffe8e8"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Blanc",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "poster-title": {
+        "displayName": "Titre d'affiche",
+        "purpose": "Nom de l'évènement sur la couverture ; taille et largeur ajustées par Poster.tsx."
+      },
+      "poster-wordmark": {
+        "displayName": "Marque",
+        "purpose": "« Heaven of Dice » dans l'en-tête du couvercle."
+      },
+      "poster-picto": {
+        "displayName": "Pictos",
+        "purpose": "Valeurs du bandeau quand / horaires / lieu / entrée."
+      },
+      "poster-tagline": {
+        "displayName": "Accroche",
+        "purpose": "Description courte sous le titre, 34ch max."
+      },
+      "poster-lip": {
+        "displayName": "Petits caractères",
+        "purpose": "Mention « présente » et ligne de pied du couvercle."
+      },
+      "headline": {
+        "displayName": "Headline éditeur",
+        "purpose": "Titre « Fiche de règles »."
+      },
+      "title": {
+        "displayName": "Title éditeur",
+        "purpose": "Légendes des blocs du formulaire, en violet d'action."
+      },
+      "spine": {
+        "displayName": "Tranche",
+        "purpose": "Nom court du pôle sur l'étagère, vertical."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Champs et texte courant de l'éditeur."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Libellés de champs, segments, jours, boutons."
+      }
+    },
+    "shadows": [
+      {
+        "name": "lid-thickness",
+        "value": "0 12px 0 -3px #0c0320, 0 14px 2px -3px rgba(0,0,0,0.6), 0 44px 70px -28px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.06)",
+        "purpose": "Flanc et ombre du couvercle posé sur la table ; réservé au cadre du couvercle."
+      },
+      {
+        "name": "spine-rest",
+        "value": "inset -6px 0 0 rgba(0,0,0,0.18), inset 0 0 0 1px rgba(255,255,255,0.12), 2px 0 0 #0b0318",
+        "purpose": "Tranche de boîte au repos sur l'étagère."
+      },
+      {
+        "name": "spine-out",
+        "value": "inset -6px 0 0 rgba(0,0,0,0.18), inset 0 0 0 1px rgba(255,255,255,0.2), 10px 6px 18px rgba(0,0,0,0.55)",
+        "purpose": "Tranche choisie, sortie du rang."
+      },
+      {
+        "name": "sheet",
+        "value": "-18px 0 40px -20px rgba(0,0,0,0.7)",
+        "purpose": "Fiche de règles posée sur le tapis."
+      },
+      {
+        "name": "button-primary",
+        "value": "0 2px 4px rgba(43,10,87,0.35), 0 10px 18px -8px rgba(122,31,209,0.7)",
+        "purpose": "Bouton d'export PNG."
+      },
+      {
+        "name": "card-selected",
+        "value": "0 8px 18px -10px rgba(43,10,87,0.8)",
+        "purpose": "Carte d'édition choisie."
+      },
+      {
+        "name": "segment-selected",
+        "value": "0 1px 3px rgba(31,15,58,0.18)",
+        "purpose": "Segment choisi."
+      },
+      {
+        "name": "field-focus",
+        "value": "0 0 0 3px rgba(122,31,209,0.18)",
+        "purpose": "Halo de focus des champs."
+      },
+      {
+        "name": "poster-badge",
+        "value": "0 calc(var(--u) * 0.8) calc(var(--u) * 1.8) rgba(20, 6, 43, 0.35)",
+        "purpose": "Pastille de coin sur la couverture."
+      },
+      {
+        "name": "poster-label-special",
+        "value": "0 calc(var(--u) * 1.2) calc(var(--u) * 3) rgba(20, 6, 43, 0.55), inset 0 0 0 calc(var(--u) * 0.4) var(--hod-gold)",
+        "purpose": "Étiquette titre de biais, édition spéciale."
+      },
+      {
+        "name": "poster-sash",
+        "value": "0 calc(var(--u) * 0.7) calc(var(--u) * 1.6) rgba(0, 0, 0, 0.4), inset 0 calc(var(--u) * 0.25) 0 rgba(255, 255, 255, 0.35)",
+        "purpose": "Écharpe dorée « Édition spéciale »."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Courbe unique de toutes les transitions et de la réimpression."
+      },
+      {
+        "name": "lid-print",
+        "value": "520ms clip-path inset(0 0 100% 0) -> inset(0), brightness 1.6 -> 1",
+        "purpose": "Le couvercle se réimprime à chaque changement de pôle, d'édition ou de format ; coupé en reduced-motion."
+      },
+      {
+        "name": "spine-slide",
+        "value": "260ms transform",
+        "purpose": "Tranche qui glisse (6px survol, 24px choisie)."
+      },
+      {
+        "name": "lid-resize",
+        "value": "320ms width/height",
+        "purpose": "Cadre du couvercle qui change de format."
+      },
+      {
+        "name": "control",
+        "value": "160ms-180ms",
+        "purpose": "États des champs, puces, cartes, boutons."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "1100px"
+      },
+      {
+        "name": "stacked",
+        "value": "860px"
+      }
+    ],
+    "posterUnit": {
+      "name": "--u",
+      "value": "min(width, height) / 100 px",
+      "purpose": "Unité de toutes les dimensions du gabarit d'affiche."
+    },
+    "formats": [
+      {
+        "id": "ig-portrait",
+        "size": "1080x1350"
+      },
+      {
+        "id": "ig-square",
+        "size": "1080x1080"
+      },
+      {
+        "id": "ig-story",
+        "size": "1080x1920"
+      },
+      {
+        "id": "a4-portrait",
+        "size": "1240x1754 @2x"
+      },
+      {
+        "id": "a4-landscape",
+        "size": "1754x1240 @2x"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Bouton principal (export PNG)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Seule action qui flotte : l'export PNG.",
+      "html": "<button class=\"ds-btn-primary\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 4v11M7.5 10.5 12 15l4.5-4.5M4.5 19.5h15\"/></svg>PNG</button>",
+      "css": ":host{--felt:#170830;--felt-ink:#efe6fb;--felt-muted:#b7a5d3;--sheet:#f5effc;--sheet-2:#ebe1f8;--sheet-ink:#1f0f3a;--sheet-muted:#5f4d7d;--sheet-line:#d9cbec;--violet:#7a1fd1;--violet-deep:#2b0a57;--electric:#a30af5;--orchid:#e58cf5;--gold:#e9b949;--radius:10px;--ease:cubic-bezier(0.16,1,0.3,1);}.ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;border:0;border-radius:12px;background:var(--violet);color:#fff;font-family:'Hanken Grotesk Variable','Hanken Grotesk',system-ui,sans-serif;font-weight:800;font-size:15px;letter-spacing:.04em;cursor:pointer;box-shadow:0 2px 4px rgba(43,10,87,.35),0 10px 18px -8px rgba(122,31,209,.7);transition:background 180ms var(--ease),transform 180ms var(--ease),box-shadow 180ms var(--ease);}.ds-btn-primary:hover{background:#8a2ae6;transform:translateY(-1px);}.ds-btn-primary:active{transform:translateY(1px);box-shadow:0 1px 2px rgba(43,10,87,.4);}.ds-btn-primary:focus-visible{outline:2px solid var(--orchid);outline-offset:2px;}"
+    },
+    {
+      "name": "Bouton secondaire (JPG, PDF)",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Exports secondaires, bordés encre de fiche.",
+      "html": "<button class=\"ds-btn-secondary\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 4v11M7.5 10.5 12 15l4.5-4.5M4.5 19.5h15\"/></svg>PDF</button>",
+      "css": ":host{--felt:#170830;--felt-ink:#efe6fb;--felt-muted:#b7a5d3;--sheet:#f5effc;--sheet-2:#ebe1f8;--sheet-ink:#1f0f3a;--sheet-muted:#5f4d7d;--sheet-line:#d9cbec;--violet:#7a1fd1;--violet-deep:#2b0a57;--electric:#a30af5;--orchid:#e58cf5;--gold:#e9b949;--radius:10px;--ease:cubic-bezier(0.16,1,0.3,1);}.ds-btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border:1.5px solid var(--sheet-ink);border-radius:12px;background:#fff;color:var(--sheet-ink);font-family:'Hanken Grotesk Variable','Hanken Grotesk',system-ui,sans-serif;font-weight:800;font-size:15px;letter-spacing:.04em;cursor:pointer;transition:background 180ms var(--ease);}.ds-btn-secondary:hover{background:var(--sheet-2);}.ds-btn-secondary:focus-visible{outline:2px solid var(--orchid);outline-offset:2px;}"
+    },
+    {
+      "name": "Champ de fiche",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Champ texte du formulaire papier, focus violet.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Nom de l’évènement <em>optionnel</em></span><input class=\"ds-input\" type=\"text\" value=\"Commander Night\"></label>",
+      "css": ":host{--felt:#170830;--felt-ink:#efe6fb;--felt-muted:#b7a5d3;--sheet:#f5effc;--sheet-2:#ebe1f8;--sheet-ink:#1f0f3a;--sheet-muted:#5f4d7d;--sheet-line:#d9cbec;--violet:#7a1fd1;--violet-deep:#2b0a57;--electric:#a30af5;--orchid:#e58cf5;--gold:#e9b949;--radius:10px;--ease:cubic-bezier(0.16,1,0.3,1);}.ds-field{display:flex;flex-direction:column;gap:6px;font-family:'Hanken Grotesk Variable','Hanken Grotesk',system-ui,sans-serif;background:var(--sheet);padding:16px;}.ds-field-label{display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:var(--sheet-ink);}.ds-field-label em{font-style:normal;font-weight:500;color:var(--sheet-muted);}.ds-input{padding:10px 12px;border:1.5px solid var(--sheet-line);border-radius:var(--radius);background:#fff;color:var(--sheet-ink);font:inherit;font-size:15px;caret-color:var(--electric);transition:border-color 160ms var(--ease),box-shadow 160ms var(--ease);}.ds-input:hover{border-color:#c3afe0;}.ds-input:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 3px rgba(122,31,209,.18);}"
+    },
+    {
+      "name": "Puces de suggestion",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Exemples d'évènements et de prix ; la choisie passe en encre pleine.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip\">Lorcana</button><button class=\"ds-chip\" aria-pressed=\"true\">Commander Night</button><button class=\"ds-chip\">Draft Lorcana</button></div>",
+      "css": ":host{--felt:#170830;--felt-ink:#efe6fb;--felt-muted:#b7a5d3;--sheet:#f5effc;--sheet-2:#ebe1f8;--sheet-ink:#1f0f3a;--sheet-muted:#5f4d7d;--sheet-line:#d9cbec;--violet:#7a1fd1;--violet-deep:#2b0a57;--electric:#a30af5;--orchid:#e58cf5;--gold:#e9b949;--radius:10px;--ease:cubic-bezier(0.16,1,0.3,1);}.ds-chips{display:flex;flex-wrap:wrap;gap:6px;background:var(--sheet);padding:16px;}.ds-chip{padding:5px 11px;border:1.5px solid var(--sheet-line);border-radius:999px;background:transparent;color:var(--sheet-muted);font-family:'Hanken Grotesk Variable','Hanken Grotesk',system-ui,sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:background 160ms var(--ease),color 160ms var(--ease),border-color 160ms var(--ease);}.ds-chip:hover{border-color:var(--violet);color:var(--sheet-ink);}.ds-chip[aria-pressed=true]{background:var(--sheet-ink);border-color:var(--sheet-ink);color:#fff;}.ds-chip:focus-visible{outline:2px solid var(--orchid);outline-offset:2px;}"
+    },
+    {
+      "name": "Cartes d'édition",
+      "kind": "card",
+      "refersTo": "edition-card",
+      "description": "Choix hebdo / spéciale ; la spéciale choisie prend le filet or.",
+      "html": "<div class=\"ds-editions\"><button class=\"ds-edition\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4.5 11V9.5a3 3 0 0 1 3-3h11M15.5 3.5l3 3-3 3M19.5 13v1.5a3 3 0 0 1-3 3h-11M8.5 20.5l-3-3 3-3\"/></svg><b>Hebdo</b><span>La boîte classique, pour le rendez-vous régulier.</span></button><button class=\"ds-edition ds-edition-special\" aria-checked=\"true\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3.5 13.9 10l6.6 2-6.6 2L12 20.5 10.1 14l-6.6-2 6.6-2Z\"/></svg><b>Spéciale</b><span>L’édition collector, pour l’évènement exceptionnel.</span></button></div>",
+      "css": ":host{--felt:#170830;--felt-ink:#efe6fb;--felt-muted:#b7a5d3;--sheet:#f5effc;--sheet-2:#ebe1f8;--sheet-ink:#1f0f3a;--sheet-muted:#5f4d7d;--sheet-line:#d9cbec;--violet:#7a1fd1;--violet-deep:#2b0a57;--electric:#a30af5;--orchid:#e58cf5;--gold:#e9b949;--radius:10px;--ease:cubic-bezier(0.16,1,0.3,1);}.ds-editions{display:grid;grid-template-columns:1fr 1fr;gap:10px;background:var(--sheet);padding:16px;font-family:'Hanken Grotesk Variable','Hanken Grotesk',system-ui,sans-serif;}.ds-edition{display:grid;grid-template-columns:auto 1fr;align-items:center;column-gap:8px;row-gap:4px;padding:12px;border:1.5px solid var(--sheet-line);border-radius:12px;background:#fff;color:var(--sheet-muted);text-align:left;font:inherit;cursor:pointer;transition:border-color 180ms var(--ease),box-shadow 180ms var(--ease);}.ds-edition svg{color:var(--violet);}.ds-edition b{font-family:'Anybody Variable',sans-serif;font-weight:850;font-stretch:110%;font-size:16px;text-transform:uppercase;color:var(--sheet-ink);}.ds-edition span{grid-column:1/-1;font-size:12.5px;line-height:1.35;}.ds-edition:hover{border-color:#c3afe0;}.ds-edition[aria-checked=true]{border-color:var(--violet-deep);background:var(--violet-deep);color:#d9c8f2;box-shadow:0 8px 18px -10px rgba(43,10,87,.8);}.ds-edition[aria-checked=true] b{color:#fff;}.ds-edition-special[aria-checked=true]{box-shadow:inset 0 0 0 2px var(--gold),0 8px 18px -10px rgba(43,10,87,.8);}.ds-edition-special[aria-checked=true] svg{color:var(--gold);}.ds-edition:focus-visible{outline:2px solid var(--orchid);outline-offset:2px;}"
+    },
+    {
+      "name": "Contrôle segmenté et jours",
+      "kind": "custom",
+      "refersTo": "segmented",
+      "description": "Mode de date sur rail lilas ; le jour choisi passe en violet plein.",
+      "html": "<div class=\"ds-seg\"><button aria-checked=\"true\">Récurrent</button><button>Date unique</button><button>Texte libre</button></div><div class=\"ds-seg ds-days\"><button>Lun</button><button aria-checked=\"true\">Mar</button><button>Mer</button><button>Jeu</button></div>",
+      "css": ":host{--felt:#170830;--felt-ink:#efe6fb;--felt-muted:#b7a5d3;--sheet:#f5effc;--sheet-2:#ebe1f8;--sheet-ink:#1f0f3a;--sheet-muted:#5f4d7d;--sheet-line:#d9cbec;--violet:#7a1fd1;--violet-deep:#2b0a57;--electric:#a30af5;--orchid:#e58cf5;--gold:#e9b949;--radius:10px;--ease:cubic-bezier(0.16,1,0.3,1);}:host{display:block;background:var(--sheet);padding:16px;}.ds-seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:4px;padding:4px;margin-bottom:8px;border-radius:12px;background:var(--sheet-2);font-family:'Hanken Grotesk Variable','Hanken Grotesk',system-ui,sans-serif;}.ds-seg button{padding:8px 6px;border:0;border-radius:8px;background:transparent;color:var(--sheet-muted);font:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:background 160ms var(--ease),color 160ms var(--ease);}.ds-seg button:hover{color:var(--sheet-ink);}.ds-seg button[aria-checked=true]{background:#fff;color:var(--sheet-ink);box-shadow:0 1px 3px rgba(31,15,58,.18);}.ds-days button[aria-checked=true]{background:var(--violet);color:#fff;}.ds-seg button:focus-visible{outline:2px solid var(--orchid);outline-offset:2px;}"
+    },
+    {
+      "name": "Étagère de tranches",
+      "kind": "nav",
+      "refersTo": "spine",
+      "description": "Navigation des pôles ; la tranche choisie sort du rang.",
+      "html": "<div class=\"ds-shelf\"><button class=\"ds-spine\" style=\"--spine:#ede6d6;--spine-ink:#2b0a57\"><span class=\"ds-cap\">HOD</span><span class=\"ds-name\">Réflexion</span></button><button class=\"ds-spine\" aria-checked=\"true\" style=\"--spine:#1f5ad6;--spine-ink:#fff\"><span class=\"ds-cap\">HOD</span><span class=\"ds-name\">TCG</span></button><button class=\"ds-spine\" style=\"--spine:#ff7417;--spine-ink:#2b0a57\"><span class=\"ds-cap\">HOD</span><span class=\"ds-name\">Société</span></button></div>",
+      "css": ":host{--felt:#170830;--felt-ink:#efe6fb;--felt-muted:#b7a5d3;--sheet:#f5effc;--sheet-2:#ebe1f8;--sheet-ink:#1f0f3a;--sheet-muted:#5f4d7d;--sheet-line:#d9cbec;--violet:#7a1fd1;--violet-deep:#2b0a57;--electric:#a30af5;--orchid:#e58cf5;--gold:#e9b949;--radius:10px;--ease:cubic-bezier(0.16,1,0.3,1);}.ds-shelf{display:flex;flex-direction:column;gap:6px;width:112px;padding:14px 0 14px 14px;background:linear-gradient(90deg,#0f0522,#160829);}.ds-spine{width:72px;height:110px;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 0 8px;border:0;border-radius:4px 0 0 4px;background:var(--spine);color:var(--spine-ink);overflow:hidden;cursor:pointer;box-shadow:inset -6px 0 0 rgba(0,0,0,.18),inset 0 0 0 1px rgba(255,255,255,.12),2px 0 0 #0b0318;transition:transform 260ms var(--ease),box-shadow 260ms var(--ease);}.ds-spine:hover{transform:translateX(6px);}.ds-spine[aria-checked=true]{transform:translateX(24px);box-shadow:inset -6px 0 0 rgba(0,0,0,.18),inset 0 0 0 1px rgba(255,255,255,.2),10px 6px 18px rgba(0,0,0,.55);}.ds-cap{width:100%;padding:4px 0;background:var(--violet-deep);color:#fff;font-family:'Hanken Grotesk Variable','Hanken Grotesk',system-ui,sans-serif;font-size:9px;font-weight:800;letter-spacing:.16em;text-align:center;}.ds-name{flex:1;writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Anybody Variable',sans-serif;font-weight:850;font-stretch:64%;font-size:14px;line-height:1;text-transform:uppercase;letter-spacing:.02em;}.ds-spine:focus-visible{outline:2px solid var(--orchid);outline-offset:2px;}"
+    },
+    {
+      "name": "Bandeau de pictos (couvercle hebdo)",
+      "kind": "custom",
+      "refersTo": "poster-picto",
+      "description": "Cellules quand / lieu du couvercle, à l'échelle --u = 4px.",
+      "html": "<ul class=\"ds-pictos\"><li class=\"ds-picto\"><span class=\"ds-picto-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3.5\" y=\"5\" width=\"17\" height=\"15.5\" rx=\"2.5\"/><path d=\"M3.5 10h17M8 3v4M16 3v4\"/><path d=\"M8 14h2M14 14h2M8 17.2h2\"/></svg></span><b>Tous les mardis</b></li><li class=\"ds-picto\"><span class=\"ds-picto-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z\"/><circle cx=\"12\" cy=\"10\" r=\"2.4\"/></svg></span><b>Salle B204</b></li></ul>",
+      "css": ".ds-pictos{--u:4px;--pole:#1f5ad6;--pole-ink:#fff;--pole-light:#7fa7ff;list-style:none;margin:0;padding:calc(var(--u)*1.2);display:flex;gap:calc(var(--u)*1.2);border-radius:calc(var(--u)*1.2);background:#14062b;box-shadow:inset 0 0 0 calc(var(--u)*.18) rgba(229,140,245,.28);font-family:'Hanken Grotesk Variable','Hanken Grotesk',system-ui,sans-serif;}.ds-picto{flex:1 1 0;display:flex;align-items:center;gap:calc(var(--u)*1.1);padding:calc(var(--u)*.6);}.ds-picto+.ds-picto{border-left:calc(var(--u)*.15) solid rgba(243,236,251,.14);padding-left:calc(var(--u)*1.6);}.ds-picto-icon{flex:none;width:calc(var(--u)*5.2);height:calc(var(--u)*5.2);border-radius:50%;display:grid;place-items:center;background:var(--pole);color:var(--pole-ink);box-shadow:inset 0 0 0 calc(var(--u)*.2) var(--pole-light);}.ds-picto-icon svg{width:calc(var(--u)*2.9);height:calc(var(--u)*2.9);}.ds-picto b{font-size:calc(var(--u)*2.5);font-weight:800;line-height:1.12;color:#fff;}"
+    },
+    {
+      "name": "Pastille de coin",
+      "kind": "custom",
+      "refersTo": "poster-badge",
+      "description": "Jour ou date, inclinée à -8° ; hebdo violet, spéciale or.",
+      "html": "<div class=\"ds-badges\"><div class=\"ds-badge\"><b>Mar</b><span>Hebdo</span></div><div class=\"ds-badge ds-badge-special\"><b>24</b><span>Oct</span></div></div>",
+      "css": ".ds-badges{--u:6px;display:flex;gap:24px;padding:24px;background:#1f5ad6;}.ds-badge{width:calc(var(--u)*15);height:calc(var(--u)*15);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#2b0a57;color:#fff;border:calc(var(--u)*.6) solid #7fa7ff;box-shadow:0 calc(var(--u)*.8) calc(var(--u)*1.8) rgba(20,6,43,.35);transform:rotate(-8deg);text-align:center;}.ds-badge b{font-family:'Anybody Variable',sans-serif;font-weight:900;font-stretch:88%;font-size:calc(var(--u)*5);line-height:.9;text-transform:uppercase;}.ds-badge span{margin-top:calc(var(--u)*.6);font-family:'Hanken Grotesk Variable','Hanken Grotesk',system-ui,sans-serif;font-size:calc(var(--u)*1.6);font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#e58cf5;}.ds-badge-special{background:#e9b949;color:#2b0a57;border-color:#fff;}.ds-badge-special span{color:#2b0a57;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La collection Heaven of Dice",
+    "overview": "**Creative North Star: \"La collection Heaven of Dice\"**\n\nChaque affiche est le couvercle imprimé d'une boîte de jeu d'une même collection. Un rebord violet HOD profond encadre une couverture en aplat pleine couleur du pôle, illustrée par un motif SVG propre au pôle et par le phénix HOD. Le nom de l'évènement est le titre de la boîte ; quand, horaires, lieu et entrée occupent le bandeau de pictos à cellules, comme « joueurs · durée · âge » sur une vraie boîte. Une pastille ronde inclinée porte le jour ou la date en coin, et une ligne de petits caractères au pied du couvercle porte la référence de collection (`Réf. HOD-TCG-HEB`).\n\nL'éditeur est la table de jeu qui fabrique ces boîtes : un tapis feutré violet nuit, une étagère verticale de sept tranches de boîtes (une par pôle, la choisie sortie du rang), le couvercle posé au centre avec une vraie épaisseur et une ombre portée, et à droite une « fiche de règles » papier lilas pâle qui sert de formulaire. Densité moyenne, contrôles nets, aucun ornement qui ne soit pas un objet du jeu.\n\nL'édition hebdo est la boîte classique, sobre et récurrente. L'édition spéciale est l'édition collector : l'or entre (écharpe « Édition spéciale », filet intérieur, pastille, pictos), une gerbe cristalline violet électrique envahit la couverture derrière un médaillon, et le bloc titre devient une étiquette collée de biais.",
+    "keyCharacteristics": [
+      "Rebord violet HOD (`hod-deep`) sur chaque affiche, couverture en aplat de la couleur du pôle.",
+      "Un motif SVG dessiné par pôle, jamais de photo, jamais de flou.",
+      "Titres en Anybody très gras dont la largeur variable s'ajuste au texte ; informations en Hanken Grotesk.",
+      "Tout le gabarit d'affiche est mesuré en `--u` (1 % du petit côté du format), donc identique dans les cinq formats.",
+      "Le hebdo est sobre, le spécial ajoute l'or et l'éclat ; le violet HOD reste le cadre dans les deux."
+    ],
+    "rules": [
+      {
+        "name": "The Two Purples Rule",
+        "body": "Le violet HOD (`hod-*`) appartient à l'affiche, le violet d'action (`violet`) appartient à l'éditeur. Un nouveau contrôle de l'éditeur prend `violet` ; un nouvel élément d'affiche prend un `hod-*`.",
+        "section": "colors"
+      },
+      {
+        "name": "The Gold Is Collector Rule",
+        "body": "L'or n'apparaît que lorsque `data-edition='special'` (affiche) ou sur la carte « Spéciale » choisie (éditeur). Une affiche hebdo n'a aucun or.",
+        "section": "colors"
+      },
+      {
+        "name": "The Pole Owns The Cover Rule",
+        "body": "La couleur du pôle remplit la couverture, l'onglet de pôle, les cercles de pictos en hebdo et la tranche ; elle ne déborde jamais sur le rebord, qui reste violet HOD.",
+        "section": "colors"
+      },
+      {
+        "name": "The Stretch Before Shrink Rule",
+        "body": "Un titre trop long se resserre en largeur (`font-stretch`) avant de perdre de la taille. Ne fixez jamais une taille de titre d'affiche ; laissez la boucle d'ajustement de `Poster.tsx` la trouver.",
+        "section": "typography"
+      },
+      {
+        "name": "The Numbers Align Rule",
+        "body": "Tout chiffre de dimension, de compteur ou de référence (`1080 × 1350`, `54/120`, `Réf. HOD-…`) est en `font-variant-numeric: tabular-nums`.",
+        "section": "typography"
+      },
+      {
+        "name": "The Objects Cast Shadows Rule",
+        "body": "Seuls les objets du jeu portent une ombre : couvercle, tranche sortie, fiche, pastille, étiquette, écharpe, phénix, bouton d'export. Un panneau, un champ ou une puce reste plat.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Grain Rule",
+        "body": "Le couvercle porte un grain de bruit fractal en `soft-light` à 35 % ; le tapis porte un grain blanc à 7 %. Tout nouveau fond de l'un ou l'autre monde garde son grain.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** encadrer chaque affiche du rebord `hod-deep` avec son filet intérieur (`hod-royal` en hebdo, `hod-electric` en spécial).",
+      "**Do** exprimer toute dimension d'affiche en `calc(var(--u) * N)` pour qu'elle tienne dans les cinq formats.",
+      "**Do** ajouter un pôle en complétant les sept valeurs de `src/data/poles.ts` et en lui dessinant un motif SVG dans `motifs.tsx`.",
+      "**Do** dessiner les icônes en SVG inline, trait 2px `currentColor`, extrémités arrondies, sur le modèle de `icons.tsx`.",
+      "**Do** réserver l'or (`hod-gold`) et les éléments de biais (écharpe, étiquette) à l'édition spéciale.",
+      "**Do** teinter les ombres d'affiche en violet nuit (`rgba(20, 6, 43, …)`)."
+    ],
+    "donts": [
+      "**Don't** composer un « titre centré sur photo floue + bloc d'infos » : la couverture est un aplat illustré, jamais une photo.",
+      "**Don't** poser la couleur du pôle sur le rebord : le rebord reste violet HOD, la couleur du pôle reste dans la couverture et ses pièces (onglet, pictos, face latérale).",
+      "**Don't** employer `violet` (le violet d'action de l'éditeur) sur une affiche, ni un `hod-*` comme couleur d'action de l'éditeur.",
+      "**Don't** donner une taille fixe au titre d'affiche ou le passer dans une autre police qu'Anybody.",
+      "**Don't** recolorer ou recadrer le phénix `logo.png`.",
+      "**Don't** ajouter d'ombre à un panneau, un champ ou une puce de l'éditeur."
+    ]
+  }
+}

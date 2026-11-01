@@ -1,0 +1,96 @@
+:root {
+  --felt: #170830;
+  --felt-3: #2e1752;
+  --felt-ink: #efe6fb;
+  --felt-muted: #b7a5d3;
+  --violet-deep: #2b0a57;
+  --electric: #a30af5;
+  --orchid: #e58cf5;
+  --radius: 10px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(60% 55% at 50% 38%, rgba(163, 10, 245, 0.32) 0%, transparent 70%),
+    radial-gradient(120% 90% at 50% 45%, var(--felt-3) 0%, var(--felt) 70%),
+    var(--felt);
+  color: var(--felt-ink);
+  font-family: 'Hanken Grotesk Variable', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--orchid);
+  outline-offset: 2px;
+}
+
+.nf {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  text-align: center;
+}
+
+.nf-logo {
+  width: min(52vmin, 280px);
+  height: auto;
+  filter: drop-shadow(0 10px 36px rgba(229, 140, 245, 0.45));
+}
+
+.nf-code {
+  margin: -8px 0 0;
+  font-family: 'Anybody Variable', sans-serif;
+  font-weight: 900;
+  font-stretch: 125%;
+  font-size: clamp(88px, 22vmin, 180px);
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  background: linear-gradient(180deg, var(--orchid) 0%, var(--electric) 55%, var(--violet-deep) 110%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nf-text {
+  max-width: 34ch;
+  margin: 18px 0 28px;
+  color: var(--felt-muted);
+  font-size: 17px;
+}
+
+.nf-home {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  background: var(--electric);
+  color: #ffffff;
+  font-family: 'Anybody Variable', sans-serif;
+  font-weight: 850;
+  font-stretch: 110%;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(163, 10, 245, 0.35);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.nf-home:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(163, 10, 245, 0.5);
+}
