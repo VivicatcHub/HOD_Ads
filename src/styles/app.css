@@ -34,7 +34,7 @@ body {
   margin: 0;
   background: var(--felt);
   color: var(--felt-ink);
-  font-family: 'Hanken Grotesk Variable', system-ui, sans-serif;
+  font-family: "Hanken Grotesk Variable", system-ui, sans-serif;
   font-size: 15px;
   line-height: 1.45;
   -webkit-font-smoothing: antialiased;
@@ -73,7 +73,7 @@ button {
 }
 
 .app::before {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -107,7 +107,7 @@ button {
 }
 
 .brand-name {
-  font-family: 'Anybody Variable', sans-serif;
+  font-family: "Anybody Variable", sans-serif;
   font-weight: 850;
   font-stretch: 120%;
   font-size: 15px;
@@ -148,7 +148,9 @@ button {
     inset -6px 0 0 rgba(0, 0, 0, 0.18),
     inset 0 0 0 1px rgba(255, 255, 255, 0.12),
     2px 0 0 #0b0318;
-  transition: transform 260ms var(--ease), box-shadow 260ms var(--ease);
+  transition:
+    transform 260ms var(--ease),
+    box-shadow 260ms var(--ease);
   overflow: hidden;
 }
 
@@ -156,7 +158,7 @@ button {
   transform: translateX(6px);
 }
 
-.spine[aria-checked='true'] {
+.spine[aria-checked="true"] {
   transform: translateX(24px);
   box-shadow:
     inset -6px 0 0 rgba(0, 0, 0, 0.18),
@@ -181,7 +183,7 @@ button {
   min-height: 0;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font-family: 'Anybody Variable', sans-serif;
+  font-family: "Anybody Variable", sans-serif;
   font-weight: 850;
   font-stretch: 64%;
   font-size: 14px;
@@ -193,7 +195,7 @@ button {
   text-overflow: ellipsis;
 }
 
-.spine[data-pole='mensonges'] {
+.spine[data-pole="mensonges"] {
   box-shadow:
     inset -6px 0 0 rgba(0, 0, 0, 0.3),
     inset 0 0 0 1px rgba(229, 140, 245, 0.35),
@@ -258,7 +260,9 @@ button {
     0 14px 2px -3px rgba(0, 0, 0, 0.6),
     0 44px 70px -28px rgba(0, 0, 0, 0.85),
     0 0 0 1px rgba(255, 255, 255, 0.06);
-  transition: width 320ms var(--ease), height 320ms var(--ease);
+  transition:
+    width 320ms var(--ease),
+    height 320ms var(--ease);
 }
 
 .lid-print {
@@ -318,7 +322,7 @@ button {
 
 .sheet-head h2 {
   margin: 0;
-  font-family: 'Anybody Variable', sans-serif;
+  font-family: "Anybody Variable", sans-serif;
   font-weight: 900;
   font-stretch: 118%;
   font-size: 22px;
@@ -338,7 +342,9 @@ button {
   color: var(--sheet-muted);
   font-size: 13px;
   font-weight: 600;
-  transition: background 180ms var(--ease), color 180ms var(--ease);
+  transition:
+    background 180ms var(--ease),
+    color 180ms var(--ease);
 }
 
 .ghost:hover {
@@ -365,7 +371,7 @@ button {
   float: left;
   width: 100%;
   margin-bottom: 12px;
-  font-family: 'Anybody Variable', sans-serif;
+  font-family: "Anybody Variable", sans-serif;
   font-weight: 850;
   font-stretch: 105%;
   font-size: 15px;
@@ -396,9 +402,9 @@ button {
   font-variant-numeric: tabular-nums;
 }
 
-input[type='text'],
-input[type='date'],
-input[type='time'],
+input[type="text"],
+input[type="date"],
+input[type="time"],
 select,
 textarea {
   width: 100%;
@@ -411,7 +417,9 @@ textarea {
   font-size: 15px;
   caret-color: var(--electric);
   color-scheme: light;
-  transition: border-color 160ms var(--ease), box-shadow 160ms var(--ease);
+  transition:
+    border-color 160ms var(--ease),
+    box-shadow 160ms var(--ease);
 }
 
 input::placeholder,
@@ -467,7 +475,10 @@ select {
   color: var(--sheet-muted);
   font-size: 13px;
   font-weight: 600;
-  transition: background 160ms var(--ease), color 160ms var(--ease), border-color 160ms var(--ease);
+  transition:
+    background 160ms var(--ease),
+    color 160ms var(--ease),
+    border-color 160ms var(--ease);
 }
 
 .chip:hover {
@@ -475,7 +486,7 @@ select {
   color: var(--sheet-ink);
 }
 
-.chip[aria-pressed='true'] {
+.chip[aria-pressed="true"] {
   background: var(--sheet-ink);
   border-color: var(--sheet-ink);
   color: #ffffff;
@@ -512,7 +523,10 @@ select {
   background: #ffffff;
   text-align: left;
   color: var(--sheet-muted);
-  transition: border-color 180ms var(--ease), box-shadow 180ms var(--ease), transform 180ms var(--ease);
+  transition:
+    border-color 180ms var(--ease),
+    box-shadow 180ms var(--ease),
+    transform 180ms var(--ease);
 }
 
 .edition svg {
@@ -520,7 +534,7 @@ select {
 }
 
 .edition b {
-  font-family: 'Anybody Variable', sans-serif;
+  font-family: "Anybody Variable", sans-serif;
   font-weight: 850;
   font-stretch: 110%;
   font-size: 16px;
@@ -538,28 +552,28 @@ select {
   border-color: #c3afe0;
 }
 
-.edition[aria-checked='true'] {
+.edition[aria-checked="true"] {
   border-color: var(--violet-deep);
   background: var(--violet-deep);
   color: #d9c8f2;
   box-shadow: 0 8px 18px -10px rgba(43, 10, 87, 0.8);
 }
 
-.edition[aria-checked='true'] b {
+.edition[aria-checked="true"] b {
   color: #ffffff;
 }
 
-.edition[aria-checked='true'] svg {
+.edition[aria-checked="true"] svg {
   color: var(--orchid);
 }
 
-.edition[data-edition='special'][aria-checked='true'] {
+.edition[data-edition="special"][aria-checked="true"] {
   box-shadow:
     inset 0 0 0 2px var(--gold),
     0 8px 18px -10px rgba(43, 10, 87, 0.8);
 }
 
-.edition[data-edition='special'][aria-checked='true'] svg {
+.edition[data-edition="special"][aria-checked="true"] svg {
   color: var(--gold);
 }
 
@@ -583,7 +597,9 @@ select {
   color: var(--sheet-muted);
   font-size: 13px;
   font-weight: 700;
-  transition: background 160ms var(--ease), color 160ms var(--ease);
+  transition:
+    background 160ms var(--ease),
+    color 160ms var(--ease);
 }
 
 .days button {
@@ -596,14 +612,14 @@ select {
   color: var(--sheet-ink);
 }
 
-.segmented button[aria-checked='true'],
-.days button[aria-checked='true'] {
+.segmented button[aria-checked="true"],
+.days button[aria-checked="true"] {
   background: #ffffff;
   color: var(--sheet-ink);
   box-shadow: 0 1px 3px rgba(31, 15, 58, 0.18);
 }
 
-.days button[aria-checked='true'] {
+.days button[aria-checked="true"] {
   background: var(--violet);
   color: #ffffff;
 }
@@ -638,7 +654,9 @@ select {
   border-radius: 12px;
   background: #ffffff;
   color: var(--sheet-muted);
-  transition: border-color 180ms var(--ease), background 180ms var(--ease);
+  transition:
+    border-color 180ms var(--ease),
+    background 180ms var(--ease);
 }
 
 .format-shape {
@@ -666,12 +684,12 @@ select {
   border-color: #c3afe0;
 }
 
-.format[aria-checked='true'] {
+.format[aria-checked="true"] {
   border-color: var(--violet);
   background: #faf6ff;
 }
 
-.format[aria-checked='true'] .format-shape {
+.format[aria-checked="true"] .format-shape {
   background: var(--violet);
   box-shadow: 0 2px 6px rgba(43, 10, 87, 0.35);
 }
@@ -700,14 +718,20 @@ select {
   font-weight: 800;
   font-size: 15px;
   letter-spacing: 0.04em;
-  transition: background 180ms var(--ease), transform 180ms var(--ease), box-shadow 180ms var(--ease), opacity 180ms;
+  transition:
+    background 180ms var(--ease),
+    transform 180ms var(--ease),
+    box-shadow 180ms var(--ease),
+    opacity 180ms;
 }
 
 .primary {
   border: 0;
   background: var(--violet);
   color: #ffffff;
-  box-shadow: 0 2px 4px rgba(43, 10, 87, 0.35), 0 10px 18px -8px rgba(122, 31, 209, 0.7);
+  box-shadow:
+    0 2px 4px rgba(43, 10, 87, 0.35),
+    0 10px 18px -8px rgba(122, 31, 209, 0.7);
 }
 
 .primary:hover:not(:disabled) {
@@ -821,7 +845,7 @@ select {
     transform: none;
   }
 
-  .spine[aria-checked='true'] {
+  .spine[aria-checked="true"] {
     transform: translateY(0);
     height: 60px;
     margin-top: -8px;

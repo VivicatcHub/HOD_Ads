@@ -23,11 +23,15 @@ body {
 body {
   margin: 0;
   background:
-    radial-gradient(60% 55% at 50% 38%, rgba(163, 10, 245, 0.32) 0%, transparent 70%),
+    radial-gradient(
+      60% 55% at 50% 38%,
+      rgba(163, 10, 245, 0.32) 0%,
+      transparent 70%
+    ),
     radial-gradient(120% 90% at 50% 45%, var(--felt-3) 0%, var(--felt) 70%),
     var(--felt);
   color: var(--felt-ink);
-  font-family: 'Hanken Grotesk Variable', system-ui, sans-serif;
+  font-family: "Hanken Grotesk Variable", system-ui, sans-serif;
   font-size: 15px;
   line-height: 1.45;
   -webkit-font-smoothing: antialiased;
@@ -56,13 +60,18 @@ body {
 
 .nf-code {
   margin: -8px 0 0;
-  font-family: 'Anybody Variable', sans-serif;
+  font-family: "Anybody Variable", sans-serif;
   font-weight: 900;
   font-stretch: 125%;
   font-size: clamp(88px, 22vmin, 180px);
   line-height: 0.88;
   letter-spacing: -0.01em;
-  background: linear-gradient(180deg, var(--orchid) 0%, var(--electric) 55%, var(--violet-deep) 110%);
+  background: linear-gradient(
+    180deg,
+    var(--orchid) 0%,
+    var(--electric) 55%,
+    var(--violet-deep) 110%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -81,13 +90,15 @@ body {
   border-radius: var(--radius);
   background: var(--electric);
   color: #ffffff;
-  font-family: 'Anybody Variable', sans-serif;
+  font-family: "Anybody Variable", sans-serif;
   font-weight: 850;
   font-stretch: 110%;
   letter-spacing: 0.02em;
   text-decoration: none;
   box-shadow: 0 8px 24px rgba(163, 10, 245, 0.35);
-  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  transition:
+    transform 0.2s var(--ease),
+    box-shadow 0.2s var(--ease);
 }
 
 .nf-home:hover {
