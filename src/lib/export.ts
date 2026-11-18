@@ -11,6 +11,13 @@ const download = (href: string, name: string) => {
   a.remove();
 };
 
+const JPEG_QUALITY = 0.95;
+
+const renderAfterWarmup = async (render: () => Promise<string>) => {
+  await render();
+  return render();
+};
+
 export async function exportPoster(
   node: HTMLElement,
   format: Format,
@@ -28,14 +35,14 @@ export async function exportPoster(
   };
 
   if (kind === "png") {
-    await toPng(node, options);
-    const url = await toPng(node, options);
+    const url = await renderAfterWarmup(() => toPng(node, options));
     download(url, `${baseName}.png`);
     return;
   }
 
-  await toJpeg(node, { ...options, quality: 0.95 });
-  const jpeg = await toJpeg(node, { ...options, quality: 0.95 });
+  const jpeg = await renderAfterWarmup(() =>
+    toJpeg(node, { ...options, quality: JPEG_QUALITY }),
+  );
 
   if (kind === "jpg") {
     download(jpeg, `${baseName}.jpg`);

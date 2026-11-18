@@ -1,21 +1,11 @@
-import {
-  forwardRef,
-  useLayoutEffect,
-  useRef,
-  useState,
-  type CSSProperties,
-} from "react";
+import { forwardRef, useLayoutEffect, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 import logo from "../assets/logo.png";
-import { HOD, poleById } from "../data/poles";
-import { formatById, type Shape } from "../data/formats";
-import { partnersByIds } from "../data/partners";
-import { discordCodes } from "../lib/discord";
-import {
-  badgeFor,
-  timeLine,
-  whenLine,
-  type PosterState,
-} from "../lib/poster-state";
+import type { Shape } from "../data/formats";
+import { HOD } from "../data/poles";
+import { badgeFor, timeLine, type PosterState } from "../lib/poster-state";
+import { DiscordJoin } from "./DiscordJoin";
+import { fitTitle, useFontsVersion } from "./fit-title";
 import {
   CalendarIcon,
   ClockIcon,
@@ -24,54 +14,49 @@ import {
   SparkIcon,
   TicketIcon,
 } from "./icons";
-import { DiscordJoin } from "./DiscordJoin";
 import { CrystalBurst, Medallion, PoleMotif } from "./motifs";
 import { PartnerRibbon } from "./PartnerRibbon";
+import { posterData } from "./poster-data";
 
-const TITLE_MAX: Record<Shape, number> = {
+const TITLE_MAX_SIZE: Record<Shape, number> = {
   portrait: 15,
   story: 17,
   square: 13,
   landscape: 12.5,
 };
-const TITLE_ROOM: Record<Shape, number> = {
+const TITLE_COVER_SHARE: Record<Shape, number> = {
   portrait: 0.44,
   story: 0.4,
   square: 0.42,
   landscape: 0.5,
 };
-const STRETCHES = [125, 112, 100, 88, 78];
+const TITLE_MIN_SIZE = 3;
 
-function useFontsTick() {
-  const [tick, setTick] = useState(0);
-  useLayoutEffect(() => {
-    let alive = true;
-    const bump = () => alive && setTick((t) => t + 1);
-    document.fonts.ready.then(bump);
-    document.fonts.addEventListener("loadingdone", bump);
-    return () => {
-      alive = false;
-      document.fonts.removeEventListener("loadingdone", bump);
-    };
-  }, []);
-  return tick;
-}
+const titleLetterSpacing = (stretch: number) =>
+  stretch < 100 ? "0.012em" : "-0.01em";
 
 export const Poster = forwardRef<HTMLDivElement, { state: PosterState }>(
   function Poster({ state }, ref) {
-    const pole = poleById(state.pole);
-    const format = formatById(state.format);
-    const shape = format.shape;
-    const special = state.edition === "special";
-    const partners = partnersByIds(state.partners);
-    const codes = format.qr ? discordCodes(partners) : [];
-    const u = Math.min(format.width, format.height) / 100;
+    const {
+      pole,
+      format,
+      shape,
+      special,
+      partners,
+      codes,
+      unit: u,
+      title,
+      tagline,
+      when,
+      place,
+      price,
+    } = posterData(state);
 
     const coverRef = useRef<HTMLElement>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
     const taglineRef = useRef<HTMLParagraphElement>(null);
     const [cover, setCover] = useState({ w: 0, h: 0 });
-    const fonts = useFontsTick();
+    const fontsVersion = useFontsVersion();
 
     useLayoutEffect(() => {
       const el = coverRef.current;
@@ -83,25 +68,16 @@ export const Poster = forwardRef<HTMLDivElement, { state: PosterState }>(
       return () => ro.disconnect();
     }, []);
 
-    const title = state.eventName.trim() || "Nom de l’évènement";
-    const tagline = state.description.trim();
-
     useLayoutEffect(() => {
       const el = titleRef.current;
       if (!el || !cover.h) return;
-      const room =
-        cover.h * TITLE_ROOM[shape] - (taglineRef.current?.offsetHeight ?? 0);
-      const max = u * TITLE_MAX[shape];
-      const min = u * 3;
-      for (let size = max; size >= min; size *= 0.95) {
-        for (const stretch of STRETCHES) {
-          el.style.fontSize = `${size}px`;
-          el.style.fontStretch = `${stretch}%`;
-          el.style.letterSpacing = stretch < 100 ? "0.012em" : "-0.01em";
-          if (el.scrollWidth <= el.clientWidth + 1 && el.offsetHeight <= room)
-            return;
-        }
-      }
+      const taglineHeight = taglineRef.current?.offsetHeight ?? 0;
+      fitTitle(el, {
+        maxSize: u * TITLE_MAX_SIZE[shape],
+        minSize: u * TITLE_MIN_SIZE,
+        maxHeight: cover.h * TITLE_COVER_SHARE[shape] - taglineHeight,
+        letterSpacing: titleLetterSpacing,
+      });
     }, [
       title,
       tagline,
@@ -110,15 +86,12 @@ export const Poster = forwardRef<HTMLDivElement, { state: PosterState }>(
       cover.w,
       cover.h,
       u,
-      fonts,
+      fontsVersion,
       codes.length,
     ]);
 
     const badge = badgeFor(state);
-    const when = whenLine(state) || "Date à définir";
     const time = timeLine(state);
-    const place = state.place.trim() || "Lieu à définir";
-    const price = state.price.trim();
 
     const pictos = [
       { key: "when", label: "Quand", value: when, Icon: CalendarIcon },

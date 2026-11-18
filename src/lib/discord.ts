@@ -1,6 +1,7 @@
 import { DISCORD } from "../config/discord";
 import type { Partner } from "../data/partners";
 import { HOD } from "../data/poles";
+import { darken, relativeLuminance } from "./color";
 
 export interface DiscordCode {
   id: string;
@@ -11,35 +12,22 @@ export interface DiscordCode {
   ink: string;
 }
 
-const channels = (hex: string) =>
-  [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
+const MAX_SCANNABLE_LUMINANCE = 0.05;
+const DARKEN_STEP = 0.1;
 
-const luminance = (hex: string) => {
-  const [r, g, b] = channels(hex).map((c) =>
-    c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4,
-  );
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
-};
-
-const darken = (hex: string, t: number) =>
-  "#" +
-  channels(hex)
-    .map((c) =>
-      Math.round(c * (1 - t) * 255)
-        .toString(16)
-        .padStart(2, "0"),
-    )
-    .join("");
-
-const qrInk = (hex: string) => {
-  let ink = hex;
-  for (let t = 0.1; luminance(ink) > 0.05 && t < 1; t += 0.1)
-    ink = darken(hex, t);
+const scannableInk = (color: string) => {
+  let ink = color;
+  for (
+    let amount = DARKEN_STEP;
+    relativeLuminance(ink) > MAX_SCANNABLE_LUMINANCE && amount < 1;
+    amount += DARKEN_STEP
+  )
+    ink = darken(color, amount);
   return ink;
 };
 
 export function discordCodes(partners: Partner[]): DiscordCode[] {
-  const entries = [
+  const associations = [
     { id: "hod", label: "HOD", name: "Heaven of Dice", color: HOD.electric },
     ...partners.map((p) => ({
       id: p.id,
@@ -48,8 +36,10 @@ export function discordCodes(partners: Partner[]): DiscordCode[] {
       color: p.colors.main,
     })),
   ];
-  return entries.flatMap((e) => {
-    const url = DISCORD[e.id]?.trim();
-    return url ? [{ ...e, url, ink: qrInk(e.color) }] : [];
+  return associations.flatMap((association) => {
+    const url = DISCORD[association.id]?.trim();
+    return url
+      ? [{ ...association, url, ink: scannableInk(association.color) }]
+      : [];
   });
 }

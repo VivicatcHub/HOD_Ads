@@ -141,13 +141,23 @@ export function timeLine(s: PosterState): string {
   return "";
 }
 
-export function slug(s: string) {
-  return (
-    s
-      .normalize("NFD")
-      .replace(/[̀-ͯ]/g, "")
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, "") || "affiche"
-  );
-}
+const slug = (s: string) =>
+  s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "") || "affiche";
+
+export const exportBaseName = (s: PosterState, format: FormatId) =>
+  [
+    "hod",
+    s.pole,
+    slug(s.eventName),
+    s.edition === "special" ? "speciale" : "hebdo",
+    s.style === "sober" && "sobre",
+    ...s.partners,
+    format,
+  ]
+    .filter(Boolean)
+    .join("-");

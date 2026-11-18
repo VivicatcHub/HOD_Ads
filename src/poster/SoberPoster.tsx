@@ -1,32 +1,28 @@
-import {
-  forwardRef,
-  useLayoutEffect,
-  useRef,
-  useState,
-  type CSSProperties,
-} from "react";
+import { forwardRef, useLayoutEffect, useRef } from "react";
+import type { CSSProperties } from "react";
 import logo from "../assets/logo.png";
-import { poleById, type PoleId } from "../data/poles";
-import { formatById, type Shape } from "../data/formats";
-import { partnersByIds } from "../data/partners";
-import { discordCodes } from "../lib/discord";
-import { timeLine, whenLine, type PosterState } from "../lib/poster-state";
+import type { Shape } from "../data/formats";
+import type { PoleId } from "../data/poles";
+import { mix } from "../lib/color";
+import { timeLine, type PosterState } from "../lib/poster-state";
 import { DiscordJoin } from "./DiscordJoin";
+import { fitTitle, useFontsVersion } from "./fit-title";
 import { D20Icon, SparkIcon } from "./icons";
+import { posterData } from "./poster-data";
 
-const TITLE_MAX: Record<Shape, number> = {
+const TITLE_MAX_SIZE: Record<Shape, number> = {
   portrait: 13,
   story: 15,
   square: 10.5,
   landscape: 12,
 };
-const TITLE_ROOM: Record<Shape, number> = {
+const TITLE_MAX_HEIGHT: Record<Shape, number> = {
   portrait: 30,
   story: 44,
   square: 22,
   landscape: 36,
 };
-const STRETCHES = [125, 112, 100, 88, 78];
+const TITLE_MIN_SIZE = 3;
 
 const SOBER_INK: Record<
   PoleId,
@@ -41,13 +37,7 @@ const SOBER_INK: Record<
   mensonges: { title: "#131016", text: "#131016" },
 };
 
-const mix = (a: string, b: string, t: number) => {
-  const pa = [1, 3, 5].map((i) => parseInt(a.slice(i, i + 2), 16));
-  const pb = [1, 3, 5].map((i) => parseInt(b.slice(i, i + 2), 16));
-  return `rgb(${pa.map((v, i) => Math.round(v + (pb[i] - v) * t)).join(" ")})`;
-};
-
-const split = (colors: string[]) => {
+const splitBackground = (colors: string[]) => {
   const n = colors.length;
   const stops = colors.flatMap((c, i) => {
     const tone = mix("#ffffff", c, 0.3);
@@ -58,62 +48,40 @@ const split = (colors: string[]) => {
   return `linear-gradient(var(--sb-angle), ${stops.join(", ")})`;
 };
 
-function useFontsTick() {
-  const [tick, setTick] = useState(0);
-  useLayoutEffect(() => {
-    let alive = true;
-    const bump = () => alive && setTick((t) => t + 1);
-    document.fonts.ready.then(bump);
-    document.fonts.addEventListener("loadingdone", bump);
-    return () => {
-      alive = false;
-      document.fonts.removeEventListener("loadingdone", bump);
-    };
-  }, []);
-  return tick;
-}
-
 export const SoberPoster = forwardRef<HTMLDivElement, { state: PosterState }>(
   function SoberPoster({ state }, ref) {
-    const pole = poleById(state.pole);
-    const format = formatById(state.format);
-    const shape = format.shape;
-    const special = state.edition === "special";
-    const partners = partnersByIds(state.partners);
-    const codes = format.qr ? discordCodes(partners) : [];
+    const {
+      pole,
+      format,
+      shape,
+      special,
+      partners,
+      codes,
+      unit: u,
+      title,
+      tagline,
+      when,
+      place,
+      price,
+    } = posterData(state);
     const watermark = partners.find((p) => p.watermark)?.watermark;
-    const u = Math.min(format.width, format.height) / 100;
     const ink = SOBER_INK[pole.id];
     const tint = ink.tint ?? pole.light;
 
     const titleRef = useRef<HTMLHeadingElement>(null);
-    const fonts = useFontsTick();
-
-    const title = state.eventName.trim() || "Nom de l’évènement";
-    const tagline = state.description.trim();
+    const fontsVersion = useFontsVersion();
 
     useLayoutEffect(() => {
       const el = titleRef.current;
       if (!el) return;
-      const room = u * TITLE_ROOM[shape];
-      const max = u * TITLE_MAX[shape];
-      const min = u * 3;
-      for (let size = max; size >= min; size *= 0.95) {
-        for (const stretch of STRETCHES) {
-          el.style.fontSize = `${size}px`;
-          el.style.fontStretch = `${stretch}%`;
-          if (el.scrollWidth <= el.clientWidth + 1 && el.offsetHeight <= room)
-            return;
-        }
-      }
-    }, [title, shape, u, fonts]);
+      fitTitle(el, {
+        maxSize: u * TITLE_MAX_SIZE[shape],
+        minSize: u * TITLE_MIN_SIZE,
+        maxHeight: u * TITLE_MAX_HEIGHT[shape],
+      });
+    }, [title, shape, u, fontsVersion]);
 
-    const when = whenLine(state) || "Date à définir";
-    const lines = [
-      state.place.trim() || "Lieu à définir",
-      timeLine(state),
-      state.price.trim(),
-    ].filter(Boolean);
+    const lines = [place, timeLine(state), price].filter(Boolean);
 
     const vars = {
       "--u": `${u}px`,
@@ -123,7 +91,7 @@ export const SoberPoster = forwardRef<HTMLDivElement, { state: PosterState }>(
       "--sb-bottom": mix("#ffffff", tint, 0.34),
       "--sb-glow": mix("#ffffff", tint, 0.55),
       "--sb-split": partners.length
-        ? split([ink.title, ...partners.map((p) => p.colors.main)])
+        ? splitBackground([ink.title, ...partners.map((p) => p.colors.main)])
         : undefined,
       "--sb-accent": partners[0]?.colors.main,
     } as CSSProperties;

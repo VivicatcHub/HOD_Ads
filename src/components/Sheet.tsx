@@ -1,5 +1,5 @@
 import { useId, type ReactNode } from "react";
-import { FORMATS, type FormatId } from "../data/formats";
+import { FORMATS } from "../data/formats";
 import { PARTNERS } from "../data/partners";
 import { poleById } from "../data/poles";
 import type { ExportKind } from "../lib/export";
@@ -75,6 +75,75 @@ const Chips = ({
   </div>
 );
 
+interface ChoiceOption<T extends string> {
+  id: T;
+  title: string;
+  text: string;
+  Icon: typeof BoxIcon;
+}
+
+function ChoiceCards<T extends string>({
+  label,
+  options,
+  value,
+  onChange,
+}: {
+  label: string;
+  options: ChoiceOption<T>[];
+  value: T;
+  onChange: (id: T) => void;
+}) {
+  return (
+    <div className="editions" role="radiogroup" aria-label={label}>
+      {options.map(({ id, title, text, Icon }) => (
+        <button
+          key={id}
+          type="button"
+          role="radio"
+          aria-checked={value === id}
+          className="edition"
+          data-choice={id}
+          onClick={() => onChange(id)}
+        >
+          <Icon width={20} height={20} />
+          <b>{title}</b>
+          <span>{text}</span>
+        </button>
+      ))}
+    </div>
+  );
+}
+
+const STYLE_OPTIONS: ChoiceOption<PosterStyle>[] = [
+  {
+    id: "box",
+    title: "Boîte",
+    text: "Le couvercle illustré, plein de matière.",
+    Icon: BoxIcon,
+  },
+  {
+    id: "sober",
+    title: "Sobre",
+    text: "Fond clair, gros titre, l’essentiel en trois lignes.",
+    Icon: TypeIcon,
+  },
+];
+
+const EDITION_OPTIONS: ChoiceOption<Edition>[] = [
+  {
+    id: "weekly",
+    title: "Hebdo",
+    text: "La boîte classique, pour le rendez-vous régulier.",
+    Icon: RepeatIcon,
+  },
+  {
+    id: "special",
+    title: "Spéciale",
+    text: "L’édition collector, pour l’évènement exceptionnel.",
+    Icon: SparkIcon,
+  },
+];
+
 const PRICE_CHIPS = [
   "Gratuit",
   "Gratuit pour les adhérents",
@@ -99,6 +168,14 @@ export function Sheet({
   const pole = poleById(state.pole);
   const id = useId();
   const f = (name: string) => `${id}-${name}`;
+
+  const chooseEdition = (edition: Edition) => {
+    set("edition", edition);
+    if (edition === "special" && state.whenMode === "recurrence")
+      set("whenMode", "date");
+    if (edition === "weekly" && state.whenMode === "date")
+      set("whenMode", "recurrence");
+  };
 
   return (
     <section className="sheet" aria-label="Fiche de l’affiche">
@@ -132,42 +209,12 @@ export function Sheet({
 
         <fieldset className="block">
           <legend>Style</legend>
-          <div className="editions" role="radiogroup" aria-label="Style">
-            {(
-              [
-                {
-                  id: "box",
-                  title: "Boîte",
-                  text: "Le couvercle illustré, plein de matière.",
-                  Icon: BoxIcon,
-                },
-                {
-                  id: "sober",
-                  title: "Sobre",
-                  text: "Fond clair, gros titre, l’essentiel en trois lignes.",
-                  Icon: TypeIcon,
-                },
-              ] as {
-                id: PosterStyle;
-                title: string;
-                text: string;
-                Icon: typeof BoxIcon;
-              }[]
-            ).map(({ id: sid, title, text, Icon }) => (
-              <button
-                key={sid}
-                type="button"
-                role="radio"
-                aria-checked={state.style === sid}
-                className="edition"
-                onClick={() => set("style", sid)}
-              >
-                <Icon width={20} height={20} />
-                <b>{title}</b>
-                <span>{text}</span>
-              </button>
-            ))}
-          </div>
+          <ChoiceCards
+            label="Style"
+            options={STYLE_OPTIONS}
+            value={state.style}
+            onChange={(style) => set("style", style)}
+          />
         </fieldset>
 
         {PARTNERS.length > 0 && (
@@ -205,49 +252,12 @@ export function Sheet({
 
         <fieldset className="block">
           <legend>Édition</legend>
-          <div className="editions" role="radiogroup" aria-label="Édition">
-            {(
-              [
-                {
-                  id: "weekly",
-                  title: "Hebdo",
-                  text: "La boîte classique, pour le rendez-vous régulier.",
-                  Icon: RepeatIcon,
-                },
-                {
-                  id: "special",
-                  title: "Spéciale",
-                  text: "L’édition collector, pour l’évènement exceptionnel.",
-                  Icon: SparkIcon,
-                },
-              ] as {
-                id: Edition;
-                title: string;
-                text: string;
-                Icon: typeof RepeatIcon;
-              }[]
-            ).map(({ id: eid, title, text, Icon }) => (
-              <button
-                key={eid}
-                type="button"
-                role="radio"
-                aria-checked={state.edition === eid}
-                className="edition"
-                data-edition={eid}
-                onClick={() => {
-                  set("edition", eid);
-                  if (eid === "special" && state.whenMode === "recurrence")
-                    set("whenMode", "date");
-                  if (eid === "weekly" && state.whenMode === "date")
-                    set("whenMode", "recurrence");
-                }}
-              >
-                <Icon width={20} height={20} />
-                <b>{title}</b>
-                <span>{text}</span>
-              </button>
-            ))}
-          </div>
+          <ChoiceCards
+            label="Édition"
+            options={EDITION_OPTIONS}
+            value={state.edition}
+            onChange={chooseEdition}
+          />
         </fieldset>
 
         <fieldset className="block">
@@ -413,7 +423,7 @@ export function Sheet({
                       role="radio"
                       aria-checked={state.format === fm.id}
                       className="format"
-                      onClick={() => set("format", fm.id as FormatId)}
+                      onClick={() => set("format", fm.id)}
                     >
                       <span
                         className="format-shape"

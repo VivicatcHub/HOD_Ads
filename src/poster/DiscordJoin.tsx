@@ -1,36 +1,29 @@
-import qrcode from "qrcode-generator";
 import { useMemo, type CSSProperties } from "react";
 import type { DiscordCode } from "../lib/discord";
+import { qrMatrix } from "../lib/qr";
 import { ScanIcon } from "./icons";
 
+const QUIET_ZONE = 2;
+
 function QrCode({ url, ink }: { url: string; ink: string }) {
-  const { n, d } = useMemo(() => {
-    const qr = qrcode(0, "M");
-    qr.addData(url);
-    qr.make();
-    const n = qr.getModuleCount();
-    let d = "";
-    for (let r = 0; r < n; r++) {
-      for (let c = 0; c < n; c++) {
-        if (!qr.isDark(r, c)) continue;
-        let run = 1;
-        while (c + run < n && qr.isDark(r, c + run)) run++;
-        d += `M${c} ${r}h${run}v1h-${run}z`;
-        c += run - 1;
-      }
-    }
-    return { n, d };
-  }, [url]);
+  const { size, path } = useMemo(() => qrMatrix(url), [url]);
+  const box = size + QUIET_ZONE * 2;
 
   return (
     <svg
       className="join-qr"
-      viewBox={`-2 -2 ${n + 4} ${n + 4}`}
+      viewBox={`${-QUIET_ZONE} ${-QUIET_ZONE} ${box} ${box}`}
       shapeRendering="crispEdges"
       aria-hidden="true"
     >
-      <rect x={-2} y={-2} width={n + 4} height={n + 4} fill="#ffffff" />
-      <path d={d} fill={ink} />
+      <rect
+        x={-QUIET_ZONE}
+        y={-QUIET_ZONE}
+        width={box}
+        height={box}
+        fill="#ffffff"
+      />
+      <path d={path} fill={ink} />
     </svg>
   );
 }

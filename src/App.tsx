@@ -5,11 +5,15 @@ import { Stage } from "./components/Stage";
 import { formatById } from "./data/formats";
 import { poleById, type PoleId } from "./data/poles";
 import { exportPoster, type ExportKind } from "./lib/export";
-import { DEFAULT_STATE, slug, type PosterState } from "./lib/poster-state";
+import {
+  DEFAULT_STATE,
+  exportBaseName,
+  type PosterState,
+} from "./lib/poster-state";
 
 const STORAGE_KEY = "hod-ads:v1";
 
-const load = (): PosterState => {
+const loadSavedState = (): PosterState => {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) return { ...DEFAULT_STATE, ...JSON.parse(raw) };
@@ -20,7 +24,7 @@ const load = (): PosterState => {
 };
 
 export default function App() {
-  const [state, setState] = useState<PosterState>(load);
+  const [state, setState] = useState<PosterState>(loadSavedState);
   const [busy, setBusy] = useState<ExportKind | null>(null);
   const [error, setError] = useState<string | null>(null);
   const posterRef = useRef<HTMLDivElement>(null);
@@ -58,17 +62,7 @@ export default function App() {
   };
 
   const format = formatById(state.format);
-  const baseName = [
-    "hod",
-    state.pole,
-    slug(state.eventName),
-    state.edition === "special" ? "speciale" : "hebdo",
-    state.style === "sober" && "sobre",
-    ...state.partners,
-    format.id,
-  ]
-    .filter(Boolean)
-    .join("-");
+  const baseName = exportBaseName(state, format.id);
 
   const onExport = async (kind: ExportKind) => {
     if (!posterRef.current) return;
