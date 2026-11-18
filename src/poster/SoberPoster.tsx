@@ -9,7 +9,9 @@ import logo from "../assets/logo.png";
 import { poleById, type PoleId } from "../data/poles";
 import { formatById, type Shape } from "../data/formats";
 import { partnersByIds } from "../data/partners";
+import { discordCodes } from "../lib/discord";
 import { timeLine, whenLine, type PosterState } from "../lib/poster-state";
+import { DiscordJoin } from "./DiscordJoin";
 import { D20Icon, SparkIcon } from "./icons";
 
 const TITLE_MAX: Record<Shape, number> = {
@@ -78,6 +80,7 @@ export const SoberPoster = forwardRef<HTMLDivElement, { state: PosterState }>(
     const shape = format.shape;
     const special = state.edition === "special";
     const partners = partnersByIds(state.partners);
+    const codes = format.qr ? discordCodes(partners) : [];
     const watermark = partners.find((p) => p.watermark)?.watermark;
     const u = Math.min(format.width, format.height) / 100;
     const ink = SOBER_INK[pole.id];
@@ -133,6 +136,7 @@ export const SoberPoster = forwardRef<HTMLDivElement, { state: PosterState }>(
         data-edition={state.edition}
         data-pole={pole.id}
         data-partners={partners.length || undefined}
+        data-qr={codes.length || undefined}
         style={{ ...vars, width: format.width, height: format.height }}
       >
         {watermark && <img className="sb-watermark" src={watermark} alt="" />}
@@ -203,6 +207,8 @@ export const SoberPoster = forwardRef<HTMLDivElement, { state: PosterState }>(
           </ul>
           {tagline && <p className="sb-tagline">{tagline}</p>}
         </div>
+
+        <DiscordJoin codes={codes} />
 
         <img className="sb-phoenix" src={logo} alt="" />
       </div>

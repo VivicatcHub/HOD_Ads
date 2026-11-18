@@ -69,6 +69,25 @@ export default definePartner({
 
 Les options sont décrites dans `src/partners/define.ts`. Voir `src/partners/wave/` pour un exemple complet.
 
+3. Ajouter son lien Discord dans `src/config/discord.ts` (voir ci-dessous).
+
+## QR codes Discord
+
+Les liens Discord de HOD et des assos partenaires sont dans `src/config/discord.ts`, indexés par l'id de l'asso (`hod` pour Heaven of Dice, le nom du dossier `src/partners/<id>/` pour les partenaires) :
+
+```ts
+export const DISCORD: Record<string, string> = {
+  hod: "https://discord.gg/sXksSNqttB",
+  wave: "https://discord.gg/…",
+};
+```
+
+Sur les formats Full HD 16:9, A4 portrait et A4 paysage, l'affiche affiche un bloc « Rejoignez-nous sur Discord » avec un QR code par asso présente (HOD + partenaires sélectionnés). Une asso sans lien est ignorée. Rien n'est affiché sur les formats Instagram ni sur l'embed Discord.
+
+- Style Boîte : bandeau sous les pictos en portrait, colonne de droite sous les pictos en paysage.
+- Style Sobre : en bas de l'affiche en portrait, à droite à la place du phénix en paysage.
+- Chaque QR code reprend la couleur de son asso, assombrie pour rester lisible par les téléphones.
+
 ## Logo
 
 Le logo est `src/assets/logo.png` (640 px de large). Pour l'impression A4 à 300 dpi, remplacer ce fichier par une version haute définition (au moins 2000 px de large, PNG transparent) ou un SVG en gardant le même nom.

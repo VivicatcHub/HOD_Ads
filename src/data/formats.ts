@@ -5,6 +5,7 @@ export type FormatId =
   | "a4-portrait"
   | "a4-landscape"
   | "screen-hd"
+  | "screen-hd-portrait"
   | "discord";
 export type Shape = "square" | "portrait" | "story" | "landscape";
 
@@ -17,6 +18,7 @@ export interface Format {
   height: number;
   pixelRatio: number;
   shape: Shape;
+  qr: boolean;
   pdf: {
     unit: "px" | "mm";
     format: [number, number] | "a4";
@@ -34,6 +36,7 @@ export const FORMATS: Format[] = [
     height: 1350,
     pixelRatio: 1,
     shape: "portrait",
+    qr: false,
     pdf: { unit: "px", format: [1080, 1350], orientation: "portrait" },
   },
   {
@@ -45,6 +48,7 @@ export const FORMATS: Format[] = [
     height: 1080,
     pixelRatio: 1,
     shape: "square",
+    qr: false,
     pdf: { unit: "px", format: [1080, 1080], orientation: "portrait" },
   },
   {
@@ -56,6 +60,7 @@ export const FORMATS: Format[] = [
     height: 1920,
     pixelRatio: 1,
     shape: "story",
+    qr: false,
     pdf: { unit: "px", format: [1080, 1920], orientation: "portrait" },
   },
   {
@@ -67,7 +72,20 @@ export const FORMATS: Format[] = [
     height: 1080,
     pixelRatio: 1,
     shape: "landscape",
+    qr: true,
     pdf: { unit: "px", format: [1920, 1080], orientation: "landscape" },
+  },
+  {
+    id: "screen-hd-portrait",
+    group: "Écran",
+    label: "Full HD 9:16",
+    detail: "1080 × 1920",
+    width: 1080,
+    height: 1920,
+    pixelRatio: 1,
+    shape: "story",
+    qr: true,
+    pdf: { unit: "px", format: [1080, 1920], orientation: "portrait" },
   },
   {
     id: "discord",
@@ -78,6 +96,7 @@ export const FORMATS: Format[] = [
     height: 800,
     pixelRatio: 1,
     shape: "landscape",
+    qr: false,
     pdf: { unit: "px", format: [1600, 800], orientation: "landscape" },
   },
   {
@@ -89,6 +108,7 @@ export const FORMATS: Format[] = [
     height: 1754,
     pixelRatio: 2,
     shape: "portrait",
+    qr: true,
     pdf: { unit: "mm", format: "a4", orientation: "portrait" },
   },
   {
@@ -100,6 +120,7 @@ export const FORMATS: Format[] = [
     height: 1240,
     pixelRatio: 2,
     shape: "landscape",
+    qr: true,
     pdf: { unit: "mm", format: "a4", orientation: "landscape" },
   },
 ];
